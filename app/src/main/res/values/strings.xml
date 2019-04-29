@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">TesteProject</string>
+    <string name="diogo">diogo</string>
+    <string name="add_contato">Add contato</string>
+    <string name="mama">mama</string>
+    <string name="jo">jo</string>
+    <string name="andre">Andre</string>
+    <string name="flavia">Flavia</string>
+    <string name="pai">Pai</string>
+    <string name="m_e">Mãe</string>
+    <string name="contatos">Contatos</string>
 </resources>
