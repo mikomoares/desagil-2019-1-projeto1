@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="br.pro.hashi.ensino.desagil.projeto1">
 
     <application
@@ -8,9 +9,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+<<<<<<< HEAD
         android:theme="@style/AppTheme">
         <activity android:name=".mensagens_rapidas"></activity>
         <activity android:name=".MorseTranslate" />
+=======
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MorseTranslate"
+            android:exported="true" />
+>>>>>>> 6edfba8a33bca039f59091c0089e0b4daba28054
         <activity android:name=".Activity2" />
         <activity android:name=".MainActivity">
             <intent-filter>
