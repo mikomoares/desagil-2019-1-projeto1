@@ -12,7 +12,7 @@
         android:layout_height="81dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="656dp"
+        android:layout_marginBottom="532dp"
         android:background="#1e2"
         android:gravity="center"
         android:text="@string/contatos"
@@ -46,7 +46,7 @@
         android:layout_height="37dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="532dp"
+        android:layout_marginBottom="332dp"
         android:background="#808080"
         android:gravity="center"
         android:text="@string/pai"
@@ -63,7 +63,7 @@
         android:layout_height="37dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="572dp"
+        android:layout_marginBottom="292dp"
         android:background="#808080"
         android:gravity="center"
         android:text="@string/flavia"
@@ -71,7 +71,7 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -80,7 +80,7 @@
         android:layout_height="37dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="612dp"
+        android:layout_marginBottom="252dp"
         android:background="#808080"
         android:gravity="center"
         android:text="@string/andre"
@@ -88,7 +88,7 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -148,7 +148,7 @@
         android:layout_height="37dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="216dp"
+        android:layout_marginBottom="120dp"
         android:background="#808080"
         android:gravity="center"
         android:text="@string/add_contato"
@@ -156,7 +156,7 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -165,7 +165,7 @@
         android:layout_height="88dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/round_button"
         android:drawableTop="@drawable/ic_done_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -188,7 +188,7 @@
         app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button_signal"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.125" />
 
     <Button
         android:id="@+id/down"
@@ -202,9 +202,9 @@
         android:drawableTop="@drawable/ic_arrow_drop_up_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintHorizontal_bias="0.892"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button_signal"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.125" />
 
 </android.support.constraint.ConstraintLayout>
