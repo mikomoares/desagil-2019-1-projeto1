@@ -658,7 +658,7 @@ public class Translator {
             if (right != null) {
                 fila.add(right);
             }
-            if (no.getValue() != ' ' && no.getValue() != '/' && no.getValue() != '+' && no.getValue() != '=') {
+            if (no.getValue() != ' ' && no.getValue() != '*' && no.getValue() != '/' && no.getValue() != '+' && no.getValue() != '=') {
                 lista.add(charToMorse(no.getValue()));
             }
             fila.remove();
