@@ -1,9 +1,22 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.PhoneNumberUtils;
+import android.telephony.SmsManager;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.telephony.PhoneNumberUtils;
+import android.telephony.SmsManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
 import java.util.*;
 
 public class mensagens_rapidas extends AppCompatActivity {
@@ -15,6 +28,7 @@ public class mensagens_rapidas extends AppCompatActivity {
 
         final ImageButton pracima = findViewById(R.id.button_up);
         final ImageButton prabaixo = findViewById(R.id.button_down);
+        final ImageButton buttonSend = findViewById(R.id.button_send);
         final TextView text_M1 = findViewById(R.id.M1);
         final TextView text_M2 = findViewById(R.id.M2);
         final TextView text_M3 = findViewById(R.id.M3);
@@ -22,6 +36,8 @@ public class mensagens_rapidas extends AppCompatActivity {
         final TextView text_M5 = findViewById(R.id.M5);
         final TextView text_M6 = findViewById(R.id.M6);
         final TextView text_M7 = findViewById(R.id.M7);
+        final TextView contato = findViewById(R.id.contato);
+
         LinkedList<String> lista_mensagens = new LinkedList<String>();
 
         lista_mensagens.add("Estou com fome");
@@ -30,9 +46,7 @@ public class mensagens_rapidas extends AppCompatActivity {
         lista_mensagens.add("Como vão as coisas?");
         lista_mensagens.add("Preciso ir ao banheiro");
         lista_mensagens.add("boa noite, até amanhã");
-        lista_mensagens.add("Bom dia");
-
-
+        lista_mensagens.add("Outro");
 
 
         pracima.setOnClickListener((view) -> {
@@ -69,6 +83,53 @@ public class mensagens_rapidas extends AppCompatActivity {
                 text_M7.setText(lista_mensagens.get(6));
         });
 
+            String contatinho;
+            if (savedInstanceState == null) {
+                Bundle extras = getIntent().getExtras();
+                if(extras == null) {
+                    contatinho= null;
+                } else {
+                    contatinho= extras.getString("key");
+                }
+            } else {
+                contatinho= (String) savedInstanceState.getSerializable("key");
+            }
+
+            String numerotele;
+            if (savedInstanceState == null) {
+                Bundle extras = getIntent().getExtras();
+                if(extras == null) {
+                    numerotele= null;
+                } else {
+                    numerotele= extras.getString("value");
+                }
+            } else {
+                numerotele= (String) savedInstanceState.getSerializable("value");
+            }
+
+
+
+            String phone = numerotele;
+            String message = lista_mensagens.get(0);
+            contato.setText(contatinho);
+
+
+            buttonSend.setOnClickListener((view) -> {
+                if (lista_mensagens.get(0) == "Outro"){
+                    Intent intent = new Intent(mensagens_rapidas.this, MorseTranslate.class);
+                    intent.putExtra("contato", contatinho);
+                    intent.putExtra("numero_telefone", phone );
+                    startActivity(intent);
+
+                }
+                else {
+                    SmsManager manager = SmsManager.getDefault();
+                    manager.sendTextMessage(phone, null, message, null, null);
+                }
+            });
+
 
     }
+
+
 }
