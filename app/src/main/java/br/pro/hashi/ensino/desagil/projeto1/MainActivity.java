@@ -31,16 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-
-
-
-
-
-
-
-
-
         TextView contact1 = findViewById(R.id.c0);
         contact1.setText("Andre");
         contacts.put("Andre", "+5511994760134");
@@ -142,14 +132,6 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("value", contacts.get(key));
             intent.putExtra("key", key);
             startActivity(intent);
-
         });
-
-
-
-
-
-
-
     }
 }
