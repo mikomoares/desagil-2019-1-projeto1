@@ -1,5 +1,6 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,7 @@ public class MorseTranslate extends AppCompatActivity {
         final TextView textmorse = findViewById(R.id.morse_text);
         final Button buttonSpace = findViewById(R.id.whitespace);
         final TextView texttrad = findViewById(R.id.translated_text);
+        final ImageButton send = findViewById(R.id.send);
         LinkedList<String> lista = translator.getCodes();
         System.out.println(lista);
 
@@ -38,12 +40,7 @@ public class MorseTranslate extends AppCompatActivity {
             }
         });
 
-        buttonSpace.setOnClickListener((view) -> {
-            //if (lista.contains(textmorse.toString())) {
-                texttrad.setText(texttrad.getText().toString() + translator.morseToChar(textmorse.getText().toString()));
-                textmorse.setText("");
-           // }
-        });
+        buttonSpace.setOnClickListener((view) -> texttrad.setText(texttrad.getText() + " "));
 
         buttonBack.setOnClickListener((view) -> {
             String morse = textmorse.getText().toString();
@@ -58,6 +55,21 @@ public class MorseTranslate extends AppCompatActivity {
                 texttrad.setText(novo);
             } else{
                 texttrad.setText("");
+            }
+        });
+        send.setOnLongClickListener((view) -> {
+            Intent intent = new Intent(MorseTranslate.this, Activity2.class);
+            startActivity(intent);
+
+            return false;
+        });
+
+        send.setOnClickListener((view) -> {
+            for (String text : lista) {
+                if (text.equals(textmorse.getText().toString())) {
+                    texttrad.setText(texttrad.getText().toString() + translator.morseToChar(textmorse.getText().toString()));
+                    textmorse.setText("");
+                }
             }
         });
     }

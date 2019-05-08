@@ -85,21 +85,20 @@
         android:layout_height="35sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="4dp"
         android:text="Espaço"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/button_signal"
-        android:layout_width="88sp"
-        android:layout_height="88sp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/round_button"
         android:src="@drawable/ic_click"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -113,11 +112,11 @@
         android:layout_height="50sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="56dp"
         android:src="@drawable/ic_backspace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.821"
+        app:layout_constraintHorizontal_bias="0.267"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -126,38 +125,12 @@
         android:layout_height="70sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="48dp"
         android:background="@drawable/round_button"
-        android:src="@drawable/ic_send"
+        android:src="@drawable/ic_done_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.821"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/finishMorse"
-        android:layout_width="80sp"
-        android:layout_height="40sp"
-        android:layout_marginStart="8sp"
-        android:layout_marginEnd="8sp"
-        android:layout_marginBottom="104dp"
-        android:src="@drawable/ic_arrow_upward"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.168"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/back"
-        android:layout_width="80sp"
-        android:layout_height="82sp"
-        android:layout_marginStart="8sp"
-        android:layout_marginEnd="8sp"
-        android:layout_marginBottom="12dp"
-        android:src="@drawable/ic_arrow_back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintHorizontal_bias="0.729"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
