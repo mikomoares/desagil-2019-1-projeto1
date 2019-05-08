@@ -35,7 +35,6 @@ public class mensagens_rapidas extends AppCompatActivity {
         final TextView text_M4 = findViewById(R.id.M4);
         final TextView text_M5 = findViewById(R.id.M5);
         final TextView text_M6 = findViewById(R.id.M6);
-        final TextView text_M7 = findViewById(R.id.M7);
         final TextView contato = findViewById(R.id.contato);
 
         LinkedList<String> lista_mensagens = new LinkedList<String>();
@@ -45,7 +44,6 @@ public class mensagens_rapidas extends AppCompatActivity {
         lista_mensagens.add("Oi, tudo bom?");
         lista_mensagens.add("Como vão as coisas?");
         lista_mensagens.add("Preciso ir ao banheiro");
-        lista_mensagens.add("boa noite, até amanhã");
         lista_mensagens.add("Outro");
 
 
@@ -58,29 +56,25 @@ public class mensagens_rapidas extends AppCompatActivity {
             text_M4.setText(lista_mensagens.get(3));
             text_M5.setText(lista_mensagens.get(4));
             text_M6.setText(lista_mensagens.get(5));
-            text_M7.setText(lista_mensagens.get(6));
         });
 
-            prabaixo.setOnClickListener((view) -> {
-                lista_mensagens.add(lista_mensagens.get(0));
-                lista_mensagens.add(lista_mensagens.get(1));
-                lista_mensagens.add(lista_mensagens.get(2));
-                lista_mensagens.add(lista_mensagens.get(3));
-                lista_mensagens.add(lista_mensagens.get(4));
-                lista_mensagens.add(lista_mensagens.get(5));
-                lista_mensagens.removeFirst();
-                lista_mensagens.removeFirst();
-                lista_mensagens.removeFirst();
-                lista_mensagens.removeFirst();
-                lista_mensagens.removeFirst();
-                lista_mensagens.removeFirst();
-                text_M1.setText(lista_mensagens.get(0));
-                text_M2.setText(lista_mensagens.get(1));
-                text_M3.setText(lista_mensagens.get(2));
-                text_M4.setText(lista_mensagens.get(3));
-                text_M5.setText(lista_mensagens.get(4));
-                text_M6.setText(lista_mensagens.get(5));
-                text_M7.setText(lista_mensagens.get(6));
+        prabaixo.setOnClickListener((view) -> {
+            lista_mensagens.add(lista_mensagens.get(0));
+            lista_mensagens.add(lista_mensagens.get(1));
+            lista_mensagens.add(lista_mensagens.get(2));
+            lista_mensagens.add(lista_mensagens.get(3));
+            lista_mensagens.add(lista_mensagens.get(4));
+            lista_mensagens.removeFirst();
+            lista_mensagens.removeFirst();
+            lista_mensagens.removeFirst();
+            lista_mensagens.removeFirst();
+            lista_mensagens.removeFirst();
+            text_M1.setText(lista_mensagens.get(0));
+            text_M2.setText(lista_mensagens.get(1));
+            text_M3.setText(lista_mensagens.get(2));
+            text_M4.setText(lista_mensagens.get(3));
+            text_M5.setText(lista_mensagens.get(4));
+            text_M6.setText(lista_mensagens.get(5));
         });
 
             String contatinho;
@@ -111,7 +105,7 @@ public class mensagens_rapidas extends AppCompatActivity {
 
             String phone = numerotele;
             String message = lista_mensagens.get(0);
-            contato.setText(contatinho);
+            contato.setText("Para:   " + contatinho);
 
 
             buttonSend.setOnClickListener((view) -> {
@@ -123,8 +117,12 @@ public class mensagens_rapidas extends AppCompatActivity {
 
                 }
                 else {
-                    SmsManager manager = SmsManager.getDefault();
-                    manager.sendTextMessage(phone, null, message, null, null);
+                    Intent intent = new Intent(mensagens_rapidas.this, Activity2.class);
+                    intent.putExtra("contato", contatinho);
+                    intent.putExtra("numero_telefone", phone );
+                    intent.putExtra("mensagem", message );
+                    startActivity(intent);
+
                 }
             });
 
