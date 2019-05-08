@@ -1,5 +1,6 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,8 +23,36 @@ public class MorseTranslate extends AppCompatActivity {
         final TextView textmorse = findViewById(R.id.morse_text);
         final Button buttonSpace = findViewById(R.id.whitespace);
         final TextView texttrad = findViewById(R.id.translated_text);
+        final ImageButton send = findViewById(R.id.send);
+        final TextView textContato = findViewById(R.id.contato);
         LinkedList<String> lista = translator.getCodes();
-        System.out.println(lista);
+
+        String contato;
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                contato= null;
+            } else {
+                contato= extras.getString("contato");
+            }
+        } else {
+            contato= (String) savedInstanceState.getSerializable("contato");
+        }
+
+        String numero_telefone;
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                numero_telefone= null;
+            } else {
+                numero_telefone= extras.getString("numero_telefone");
+            }
+        } else {
+            numero_telefone= (String) savedInstanceState.getSerializable("numero_telefone");
+        }
+
+        String phone = numero_telefone;
+        textContato.setText(contato);
 
         buttonSignal.setOnLongClickListener((view) -> {
             if (textmorse.getText().length()<5) {
@@ -38,12 +67,7 @@ public class MorseTranslate extends AppCompatActivity {
             }
         });
 
-        buttonSpace.setOnClickListener((view) -> {
-            //if (lista.contains(textmorse.toString())) {
-                texttrad.setText(texttrad.getText().toString() + translator.morseToChar(textmorse.getText().toString()));
-                textmorse.setText("");
-           // }
-        });
+        buttonSpace.setOnClickListener((view) -> texttrad.setText(texttrad.getText() + " "));
 
         buttonBack.setOnClickListener((view) -> {
             String morse = textmorse.getText().toString();
@@ -58,6 +82,24 @@ public class MorseTranslate extends AppCompatActivity {
                 texttrad.setText(novo);
             } else{
                 texttrad.setText("");
+            }
+        });
+        send.setOnLongClickListener((view) -> {
+            Intent intent = new Intent(MorseTranslate.this, Activity2.class);
+            intent.putExtra("contato", contato);
+            intent.putExtra("numero_telefone", numero_telefone );
+            intent.putExtra("mensagem", texttrad.getText());
+            startActivity(intent);
+
+            return false;
+        });
+
+        send.setOnClickListener((view) -> {
+            for (String text : lista) {
+                if (text.equals(textmorse.getText().toString())) {
+                    texttrad.setText(texttrad.getText().toString() + translator.morseToChar(textmorse.getText().toString()));
+                    textmorse.setText("");
+                }
             }
         });
     }

@@ -31,16 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-
-
-
-
-
-
-
-
-
         TextView contact1 = findViewById(R.id.c0);
         contact1.setText("Andre");
         contacts.put("Andre", "+5511994760134");
@@ -50,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView contact2 = findViewById(R.id.c1);
-        contact2.setText("Joao");
-        contacts.put("Joao", "+5511992773966");
+        contact2.setText("Cuidador");
+        contacts.put("Cuidador", "+5511974747877");
 
 
 
@@ -81,12 +71,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView contact7 = findViewById(R.id.c6);
-        contact7.setText("Cuidador");
-        contacts.put("Cuidador", "+5511974747877");
-
-        TextView contact8 = findViewById(R.id.c7);
-        contact8.setText("OUTRO");
+        contact7.setText("OUTRO");
         contacts.put("Outro", "");
+
 
 
 
@@ -103,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(resourceId).setBackgroundResource(R.drawable.textview_noborder);
                 findViewById(resourceId + 1).setBackgroundResource(R.drawable.textview_border);
                 contactsIdx += 1;
-                ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView);
+
 
             }
 
@@ -121,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(resourceId).setBackgroundResource(R.drawable.textview_noborder);
                 findViewById(resourceId - 1).setBackgroundResource(R.drawable.textview_border);
                 contactsIdx -= 1;
-                ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView);
+
 
             }
 
@@ -142,14 +129,6 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("value", contacts.get(key));
             intent.putExtra("key", key);
             startActivity(intent);
-
         });
-
-
-
-
-
-
-
     }
 }
