@@ -47,7 +47,7 @@ public class mensagens_rapidas extends AppCompatActivity {
         lista_mensagens.add("Outro");
 
 
-        pracima.setOnClickListener((view) -> {
+        prabaixo.setOnClickListener((view) -> {
             lista_mensagens.add(lista_mensagens.get(0));
             lista_mensagens.removeFirst();
             text_M1.setText(lista_mensagens.get(0));
@@ -58,7 +58,7 @@ public class mensagens_rapidas extends AppCompatActivity {
             text_M6.setText(lista_mensagens.get(5));
         });
 
-        prabaixo.setOnClickListener((view) -> {
+        pracima.setOnClickListener((view) -> {
             lista_mensagens.add(lista_mensagens.get(0));
             lista_mensagens.add(lista_mensagens.get(1));
             lista_mensagens.add(lista_mensagens.get(2));
@@ -105,7 +105,7 @@ public class mensagens_rapidas extends AppCompatActivity {
 
             String phone = numerotele;
             String message = lista_mensagens.get(0);
-            contato.setText(" Contato:              " + contatinho);
+            contato.setText(contatinho);
 
 
             buttonSend.setOnClickListener((view) -> {
