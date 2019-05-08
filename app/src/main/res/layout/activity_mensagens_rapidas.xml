@@ -17,6 +17,7 @@
         android:background="#1e2"
         android:gravity="center"
         android:text="Mensagens Rápidas"
+        android:textColor="#000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +39,7 @@
         android:layout_marginBottom="416dp"
         android:background="#a0a0a0"
         android:gravity="center"
-        android:text="Contato: "
+        android:text="Contato:"
         android:textColor="#000"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -59,6 +60,7 @@
         android:background="@drawable/textview_border"
         android:gravity="center"
         android:text="Estou com fome"
+        android:textColor="#000"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,6 +75,7 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:textColor="#000"
         android:layout_marginBottom="296dp"
         android:background="@drawable/textview_noborder"
         android:gravity="center"
@@ -90,6 +93,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="8dp"
+        android:textColor="#000"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="240dp"
         android:background="@drawable/textview_noborder"
@@ -107,6 +111,7 @@
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:textColor="#000"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="184dp"
@@ -125,6 +130,7 @@
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:textColor="#000"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="128dp"
@@ -146,6 +152,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="72dp"
+        android:textColor="#000"
         android:background="@drawable/textview_noborder"
         android:gravity="center"
         android:text="boa noite, até amanhã"
@@ -199,14 +206,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.773"
         app:layout_constraintStart_toEndOf="@+id/button_down" />
-
-
-
-
-
-
-
-
 
 
 
