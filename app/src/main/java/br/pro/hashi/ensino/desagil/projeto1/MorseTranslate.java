@@ -24,8 +24,35 @@ public class MorseTranslate extends AppCompatActivity {
         final Button buttonSpace = findViewById(R.id.whitespace);
         final TextView texttrad = findViewById(R.id.translated_text);
         final ImageButton send = findViewById(R.id.send);
+        final TextView textContato = findViewById(R.id.contato);
         LinkedList<String> lista = translator.getCodes();
-        System.out.println(lista);
+
+        String contato;
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                contato= null;
+            } else {
+                contato= extras.getString("contato");
+            }
+        } else {
+            contato= (String) savedInstanceState.getSerializable("contato");
+        }
+
+        String numero_telefone;
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                numero_telefone= null;
+            } else {
+                numero_telefone= extras.getString("numero_telefone");
+            }
+        } else {
+            numero_telefone= (String) savedInstanceState.getSerializable("numero_telefone");
+        }
+
+        String phone = numero_telefone;
+        textContato.setText(contato);
 
         buttonSignal.setOnLongClickListener((view) -> {
             if (textmorse.getText().length()<5) {

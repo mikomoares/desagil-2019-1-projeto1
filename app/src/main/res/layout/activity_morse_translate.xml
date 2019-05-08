@@ -10,13 +10,53 @@
     android:gravity = "center">
 
     <TextView
+        android:id="@+id/titulo"
+        android:layout_width="match_parent"
+        android:layout_height="36sp"
+        android:layout_above="@+id/morse_text"
+        android:layout_marginStart="0sp"
+        android:layout_marginEnd="0sp"
+        android:layout_marginBottom="476dp"
+        android:background="#1e2"
+        android:gravity="center"
+        android:text="Tradutor Morse"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981" />
+
+    <TextView
+        android:id="@+id/contato"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="416dp"
+        android:background="#a0a0a0"
+        android:gravity="center"
+        android:text="Contato: "
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/translated_label"
         android:layout_width="match_parent"
         android:layout_height="37sp"
         android:layout_above="@+id/morse_text"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="404dp"
+        android:layout_marginBottom="376dp"
         android:background="#808080"
         android:gravity="center"
         android:text="Traduzido"
@@ -24,7 +64,7 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 
@@ -35,7 +75,7 @@
         android:layout_above="@+id/morse_text"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="272dp"
+        android:layout_marginBottom="236dp"
         android:background="#808080"
         android:gravity="center"
         android:text="Morse"
@@ -55,12 +95,12 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="316dp"
+        android:layout_marginBottom="288dp"
         android:background="@drawable/back"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -70,7 +110,7 @@
         android:layout_above="@+id/button_signal"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="176dp"
+        android:layout_marginBottom="136dp"
         android:background="@drawable/back"
         android:padding="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -132,26 +172,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.729"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="46sp"
-        android:layout_marginStart="8sp"
-        android:layout_marginEnd="8sp"
-        android:layout_marginBottom="448dp"
-        android:background="#a0a0a0"
-        android:gravity="center_vertical"
-        android:text="Contato: "
-        android:textColor="#000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-
 
 
 </android.support.constraint.ConstraintLayout>
