@@ -13,8 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".MorseTranslate" android:exported="true" />
-        <activity android:name=".mensagens_rapidas" android:exported="true" />
+        <activity
+            android:name=".MorseTranslate"
+            android:exported="true" />
+        <activity
+            android:name=".mensagens_rapidas"
+            android:exported="true" />
         <activity android:name=".Activity2" />
         <activity android:name=".MainActivity">
             <intent-filter>
