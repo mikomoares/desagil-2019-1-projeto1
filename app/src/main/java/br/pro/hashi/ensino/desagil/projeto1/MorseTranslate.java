@@ -86,6 +86,9 @@ public class MorseTranslate extends AppCompatActivity {
         });
         send.setOnLongClickListener((view) -> {
             Intent intent = new Intent(MorseTranslate.this, Activity2.class);
+            intent.putExtra("contato", contato);
+            intent.putExtra("numero_telefone", numero_telefone );
+            intent.putExtra("mensagem", texttrad.getText());
             startActivity(intent);
 
             return false;
