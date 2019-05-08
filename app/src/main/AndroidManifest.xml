@@ -13,6 +13,8 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MorseTranslate"
             android:exported="true" />
+        <activity android:name=".mensagens_rapidas"
+            android:exported="true" />
         <activity android:name=".Activity2" />
         <activity android:name=".MainActivity">
             <intent-filter>
