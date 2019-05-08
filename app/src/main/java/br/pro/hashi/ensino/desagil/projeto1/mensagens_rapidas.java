@@ -105,7 +105,7 @@ public class mensagens_rapidas extends AppCompatActivity {
 
             String phone = numerotele;
             String message = lista_mensagens.get(0);
-            contato.setText("Para:   " + contatinho);
+            contato.setText(" Contato:              " + contatinho);
 
 
             buttonSend.setOnClickListener((view) -> {
