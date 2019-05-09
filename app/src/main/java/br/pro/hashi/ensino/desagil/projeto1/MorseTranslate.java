@@ -3,6 +3,7 @@ package br.pro.hashi.ensino.desagil.projeto1;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -85,10 +86,11 @@ public class MorseTranslate extends AppCompatActivity {
             }
         });
         send.setOnLongClickListener((view) -> {
-            Intent intent = new Intent(MorseTranslate.this, Activity2.class);
+            Intent intent = new Intent(MorseTranslate.this, SMS.class);
             intent.putExtra("contato", contato);
-            intent.putExtra("numero_telefone", numero_telefone );
+            intent.putExtra("numero_telefone", numero_telefone);
             intent.putExtra("mensagem", texttrad.getText());
+            Log.d("DEBUG",numero_telefone+" "+texttrad.getText()+" "+contato);
             startActivity(intent);
 
             return false;
