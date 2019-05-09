@@ -1,7 +1,11 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.media.Image;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +20,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final int REQUEST_SEND_SMS = 0;
 
     private int contactsIdx = 0;
 
@@ -54,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView contact4 = findViewById(R.id.c3);
         contact4.setText("Evandro");
-        contacts.put("Evandro", "+554197522899");
+        contacts.put("Evandro", "+5541997522899");
 
 
 
@@ -117,18 +123,37 @@ public class MainActivity extends AppCompatActivity {
         ImageButton btnSelect = findViewById(R.id.select);
         btnSelect.setOnClickListener((view) -> {
 
-            String idText = "c" + (contactsIdx);
-            int resourceId = getResources().getIdentifier(idText, "id",
-                    getPackageName());
+            // Verifica se o aplicativo tem a permissão desejada.
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
 
-            TextView textBox = findViewById(resourceId);
+                // Se tem, podemos iniciar a SMSActivity direto.
+                String idText = "c" + (contactsIdx);
+                int resourceId = getResources().getIdentifier(idText, "id",
+                        getPackageName());
 
-            String key = textBox.getText().toString();
+                TextView textBox = findViewById(resourceId);
 
-            Intent intent = new Intent(MainActivity.this, mensagens_rapidas.class);
-            intent.putExtra("value", contacts.get(key));
-            intent.putExtra("key", key);
-            startActivity(intent);
+                String key = textBox.getText().toString();
+
+                Intent intent = new Intent(MainActivity.this, mensagens_rapidas.class);
+                intent.putExtra("value", contacts.get(key));
+                intent.putExtra("key", key);
+                startActivity(intent);
+            } else {
+
+                // Senão, precisamos pedir essa permissão.
+
+                // Cria um vetor de permissões a pedir. Como queremos
+                // uma só, parece um pouco feio, mas é bem conveniente
+                // quando queremos pedir várias permissões de uma vez.
+                String[] permissions = new String[]{
+                        Manifest.permission.SEND_SMS,
+                };
+
+                ActivityCompat.requestPermissions(this, permissions, REQUEST_SEND_SMS);
+            }
+
+
         });
     }
 }
