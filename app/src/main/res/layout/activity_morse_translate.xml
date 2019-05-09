@@ -179,16 +179,23 @@
         android:layout_height="70sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-
         android:layout_marginBottom="48dp"
-
         android:background="@drawable/round_button"
         android:src="@drawable/ic_done_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintHorizontal_bias="0.772"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/dictionary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="216dp"
+        android:background="@drawable/round_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_help"
+        tools:layout_editor_absoluteX="16dp" />
 
 
 </android.support.constraint.ConstraintLayout>

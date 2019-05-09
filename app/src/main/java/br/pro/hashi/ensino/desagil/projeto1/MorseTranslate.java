@@ -104,5 +104,11 @@ public class MorseTranslate extends AppCompatActivity {
                 }
             }
         });
+
+        ImageButton dictionary = findViewById(R.id.dictionary);
+        dictionary.setOnClickListener((view) -> {
+            Intent intent = new Intent(MorseTranslate.this , Dictionary.class);
+            startActivity(intent);
+        });
     }
 }
