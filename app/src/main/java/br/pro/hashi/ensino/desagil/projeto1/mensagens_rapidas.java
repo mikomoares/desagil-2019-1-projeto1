@@ -1,21 +1,10 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.telephony.PhoneNumberUtils;
-import android.telephony.SmsManager;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.telephony.PhoneNumberUtils;
-import android.telephony.SmsManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.*;
 
@@ -37,7 +26,7 @@ public class mensagens_rapidas extends AppCompatActivity {
         final TextView text_M6 = findViewById(R.id.M6);
         final TextView contato = findViewById(R.id.contato);
 
-        LinkedList<String> lista_mensagens = new LinkedList<String>();
+        LinkedList<String> lista_mensagens = new LinkedList<>();
 
         lista_mensagens.add("Estou com fome");
         lista_mensagens.add("Preciso de você");
@@ -77,54 +66,52 @@ public class mensagens_rapidas extends AppCompatActivity {
             text_M6.setText(lista_mensagens.get(5));
         });
 
-            String contatinho;
-            if (savedInstanceState == null) {
-                Bundle extras = getIntent().getExtras();
-                if(extras == null) {
-                    contatinho= null;
-                } else {
-                    contatinho= extras.getString("key");
-                }
+        String contatinho;
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if (extras == null) {
+                contatinho = null;
             } else {
-                contatinho= (String) savedInstanceState.getSerializable("key");
+                contatinho = extras.getString("key");
             }
+        } else {
+            contatinho = (String) savedInstanceState.getSerializable("key");
+        }
 
-            String numerotele;
-            if (savedInstanceState == null) {
-                Bundle extras = getIntent().getExtras();
-                if(extras == null) {
-                    numerotele= null;
-                } else {
-                    numerotele= extras.getString("value");
-                }
+        String numerotele;
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if (extras == null) {
+                numerotele = null;
             } else {
-                numerotele= (String) savedInstanceState.getSerializable("value");
+                numerotele = extras.getString("value");
             }
+        } else {
+            numerotele = (String) savedInstanceState.getSerializable("value");
+        }
 
 
+        String phone = numerotele;
+        String message = lista_mensagens.get(0);
+        contato.setText(contatinho);
 
-            String phone = numerotele;
-            String message = lista_mensagens.get(0);
-            contato.setText(contatinho);
 
+        buttonSend.setOnClickListener((view) -> {
+            if (Objects.equals(lista_mensagens.get(0), "Outro")) {
+                Intent intent = new Intent(mensagens_rapidas.this, MorseTranslate.class);
+                intent.putExtra("contato", contatinho);
+                intent.putExtra("numero_telefone", phone);
+                startActivity(intent);
 
-            buttonSend.setOnClickListener((view) -> {
-                if (lista_mensagens.get(0) == "Outro"){
-                    Intent intent = new Intent(mensagens_rapidas.this, MorseTranslate.class);
-                    intent.putExtra("contato", contatinho);
-                    intent.putExtra("numero_telefone", phone );
-                    startActivity(intent);
+            } else {
+                Intent intent = new Intent(mensagens_rapidas.this, SMS.class);
+                intent.putExtra("contato", contatinho);
+                intent.putExtra("numero_telefone", phone);
+                intent.putExtra("mensagem", message);
+                startActivity(intent);
 
-                }
-                else {
-                    Intent intent = new Intent(mensagens_rapidas.this, SMS.class);
-                    intent.putExtra("contato", contatinho);
-                    intent.putExtra("numero_telefone", phone );
-                    intent.putExtra("mensagem", message );
-                    startActivity(intent);
-
-                }
-            });
+            }
+        });
 
 
     }

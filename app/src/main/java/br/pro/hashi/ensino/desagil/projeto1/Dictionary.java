@@ -13,7 +13,7 @@ import java.util.Collections;
 
 public class Dictionary extends AppCompatActivity {
 
-    private Translator translator = new Translator();
+    private final Translator translator = new Translator();
 
 
     @Override
@@ -24,37 +24,37 @@ public class Dictionary extends AppCompatActivity {
         String contato;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                contato= null;
+            if (extras == null) {
+                contato = null;
             } else {
-                contato= extras.getString("contato");
+                contato = extras.getString("contato");
             }
         } else {
-            contato= (String) savedInstanceState.getSerializable("contato");
+            contato = (String) savedInstanceState.getSerializable("contato");
         }
 
         String numero_telefone;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                numero_telefone= null;
+            if (extras == null) {
+                numero_telefone = null;
             } else {
-                numero_telefone= extras.getString("numero_telefone");
+                numero_telefone = extras.getString("numero_telefone");
             }
         } else {
-            numero_telefone= (String) savedInstanceState.getSerializable("numero_telefone");
+            numero_telefone = (String) savedInstanceState.getSerializable("numero_telefone");
         }
 
         String mensagem;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                mensagem= null;
+            if (extras == null) {
+                mensagem = null;
             } else {
-                mensagem= extras.getString("mensagem");
+                mensagem = extras.getString("mensagem");
             }
         } else {
-            mensagem= (String) savedInstanceState.getSerializable("mensagem");
+            mensagem = (String) savedInstanceState.getSerializable("mensagem");
         }
 
         ListView listTextToMorse = findViewById(R.id.TextToMorse);

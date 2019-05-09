@@ -3,8 +3,6 @@ package br.pro.hashi.ensino.desagil.projeto1;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -31,19 +29,19 @@ public class MorseTranslate extends AppCompatActivity {
         String contato;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                contato= null;
+            if (extras == null) {
+                contato = null;
             } else {
-                contato= extras.getString("contato");
+                contato = extras.getString("contato");
             }
         } else {
-            contato= (String) savedInstanceState.getSerializable("contato");
+            contato = (String) savedInstanceState.getSerializable("contato");
         }
 
         String numero_telefone;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
+            if (extras == null) {
                 numero_telefone = null;
             } else {
                 numero_telefone = extras.getString("numero_telefone");
@@ -55,28 +53,27 @@ public class MorseTranslate extends AppCompatActivity {
         String mensagem;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                mensagem= null;
-            } else {
-                mensagem= extras.getString("mensagem");
+            if (extras != null) {
+                mensagem = extras.getString("mensagem");
                 texttrad.setText(mensagem);
+
             }
         } else {
-            numero_telefone= (String) savedInstanceState.getSerializable("mensagem");
+            numero_telefone = (String) savedInstanceState.getSerializable("mensagem");
         }
 
-        String phone = numero_telefone;
+
         textContato.setText(contato);
         buttonSignal.setOnLongClickListener((view) -> {
 
-            if (textmorse.getText().length()<5) {
+            if (textmorse.getText().length() < 5) {
                 textmorse.setText(textmorse.getText() + "-");
             }
             return true;
         });
 
         buttonSignal.setOnClickListener((view) -> {
-            if (textmorse.getText().length()<5) {
+            if (textmorse.getText().length() < 5) {
                 textmorse.setText(textmorse.getText() + ".");
             }
         });
@@ -91,10 +88,10 @@ public class MorseTranslate extends AppCompatActivity {
             if (tamanhom != 0) {
                 String novo = morse.substring(0, tamanhom - 1);
                 textmorse.setText(novo);
-            } else if (tamanhoa != 0){
+            } else if (tamanhoa != 0) {
                 String novo = alpha.substring(0, tamanhoa - 1);
                 texttrad.setText(novo);
-            } else{
+            } else {
                 texttrad.setText("");
             }
         });
@@ -121,7 +118,7 @@ public class MorseTranslate extends AppCompatActivity {
 
         ImageButton dictionary = findViewById(R.id.dictionary);
         dictionary.setOnClickListener((view) -> {
-            Intent intent = new Intent(MorseTranslate.this , Dictionary.class);
+            Intent intent = new Intent(MorseTranslate.this, Dictionary.class);
             intent.putExtra("contato", contato);
             intent.putExtra("numero_telefone", number_phone);
             intent.putExtra("mensagem", texttrad.getText());

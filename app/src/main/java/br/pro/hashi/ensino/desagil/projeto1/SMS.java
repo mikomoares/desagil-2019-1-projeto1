@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.LinkedList;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class SMS extends AppCompatActivity {
 
@@ -31,7 +30,6 @@ public class SMS extends AppCompatActivity {
         LinkedList<String> lista = translator.getCodes();
 
 
-
         buttonSend.setOnClickListener((view) -> {
             String message = text_Message.getText().toString();
 
@@ -39,7 +37,6 @@ public class SMS extends AppCompatActivity {
                 showToast("Mensagem inválida!");
                 return;
             }
-
 
 
             String phone = String.valueOf(text_Number.getText());
@@ -60,13 +57,13 @@ public class SMS extends AppCompatActivity {
         });
 
         buttonSignal.setOnLongClickListener((view) -> {
-            if (text_Number.getText().toString().length()==  0){
+            if (text_Number.getText().toString().length() == 0) {
                 text_Number.setText("+");
-                System.out.println (text_Number.getText().toString());
+                System.out.println(text_Number.getText().toString());
             }
-            if (text_Number.getText().length()<=13){
-                text_Morse.setText(text_Morse.getText()+"-");
-                System.out.println (text_Number.getText().toString());
+            if (text_Number.getText().length() <= 13) {
+                text_Morse.setText(text_Morse.getText() + "-");
+                System.out.println(text_Number.getText().toString());
             }
             if (text_Morse.getText().length() == 5) {
                 int ser = 0;
@@ -74,31 +71,27 @@ public class SMS extends AppCompatActivity {
                     if (text.equals(text_Morse.getText().toString())) {
                         text_Number.setText(text_Number.getText().toString() + translator.morseToChar(text_Morse.getText().toString()));
                         text_Morse.setText("");
-                        System.out.println (text_Number.getText().toString());
+                        System.out.println(text_Number.getText().toString());
                         ser = 1;
                     }
                 }
-                if (ser == 0){
+                if (ser == 0) {
                     text_Morse.setText("");
                 }
             }
             return true;
         });
 
-        System.out.println (text_Number.getText().toString());
-        if (text_Number.getText().toString()==  null){
-            text_Number.setText("+");
-        }
-        System.out.println (text_Number.getText().toString());
+
 
         buttonSignal.setOnClickListener((view) -> {
-            if (text_Number.getText().toString().length()==  0){
+            if (text_Number.getText().toString().length() == 0) {
                 text_Number.setText("+");
-                System.out.println (text_Number.getText().toString());
+                System.out.println(text_Number.getText().toString());
             }
-            if (text_Number.getText().length()<=13){
-                text_Morse.setText(text_Morse.getText()+".");
-                System.out.println (text_Number.getText().toString());
+            if (text_Number.getText().length() <= 13) {
+                text_Morse.setText(text_Morse.getText() + ".");
+                System.out.println(text_Number.getText().toString());
             }
             if (text_Morse.getText().length() == 5) {
                 int ser = 0;
@@ -106,11 +99,11 @@ public class SMS extends AppCompatActivity {
                     if (text.equals(text_Morse.getText().toString())) {
                         text_Number.setText(text_Number.getText().toString() + translator.morseToChar(text_Morse.getText().toString()));
                         text_Morse.setText("");
-                        System.out.println (text_Number.getText().toString());
+                        System.out.println(text_Number.getText().toString());
                         ser = 1;
                     }
                 }
-                if (ser ==0){
+                if (ser == 0) {
                     text_Morse.setText("");
                 }
             }
@@ -124,10 +117,10 @@ public class SMS extends AppCompatActivity {
             if (tamanhom != 0) {
                 String novo = morse.substring(0, tamanhom - 1);
                 text_Morse.setText(novo);
-            } else if (tamanhoa != 0){
+            } else if (tamanhoa != 0) {
                 String novo = alpha.substring(0, tamanhoa - 1);
                 text_Number.setText(novo);
-            } else{
+            } else {
                 text_Number.setText("");
             }
         });
@@ -135,7 +128,7 @@ public class SMS extends AppCompatActivity {
         String mensagem;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
+            if (extras == null) {
                 mensagem = null;
             } else {
                 mensagem = extras.getString("mensagem");
@@ -147,7 +140,7 @@ public class SMS extends AppCompatActivity {
         String numero_telefone;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
+            if (extras == null) {
                 numero_telefone = null;
             } else {
                 numero_telefone = extras.getString("numero_telefone");
@@ -159,7 +152,7 @@ public class SMS extends AppCompatActivity {
         String contato;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
+            if (extras == null) {
                 contato = null;
             } else {
                 contato = extras.getString("contato");
@@ -167,53 +160,27 @@ public class SMS extends AppCompatActivity {
         } else {
             contato = (String) savedInstanceState.getSerializable("contato");
         }
-        if (mensagem==null)
-            text_Message.setText("Mensagem:  " +  " ");
+        if (mensagem == null)
+            text_Message.setText("Mensagem:  " + " ");
         else
-            text_Message.setText("Mensagem:  " +  mensagem);
+            text_Message.setText("Mensagem:  " + mensagem);
 
-        if (numero_telefone==null)
+        if (numero_telefone == null)
             text_Number.setText(" ");
         else
-            Log.d("DEBUG/",numero_telefone);
-            text_Number.setText(numero_telefone);
+            Log.d("DEBUG/", numero_telefone);
+        text_Number.setText(numero_telefone);
 
-        if (contato==null)
+        if (contato == null)
             text_Contact.setText("Contato: " + " ");
         else
             text_Contact.setText("Contato: " + contato);
 
 
-
     }
 
     // Function to insert string
-    public static String insertString(
-            String originalString,
-            String stringToBeInserted,
-            int index)
-    {
 
-        // Create a new string
-        String newString = new String();
-
-        for (int i = 0; i < originalString.length(); i++) {
-
-            // Insert the original string character
-            // into the new string
-            newString += originalString.charAt(i);
-
-            if (i == index) {
-
-                // Insert the string to be inserted
-                // into the new string
-                newString += stringToBeInserted;
-            }
-        }
-
-        // return the modified String
-        return newString;
-    }
 
     // Método de conveniência para mostrar uma bolha de texto.
     private void showToast(String text) {
