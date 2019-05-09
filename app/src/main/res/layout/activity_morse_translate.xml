@@ -16,7 +16,7 @@
         android:layout_above="@+id/morse_text"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="404dp"
+        android:layout_marginBottom="484dp"
         android:background="#808080"
         android:gravity="center"
         android:text="Traduzido"
@@ -35,7 +35,7 @@
         android:layout_above="@+id/morse_text"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="272dp"
+        android:layout_marginBottom="344dp"
         android:background="#808080"
         android:gravity="center"
         android:text="Morse"
@@ -55,12 +55,12 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="316dp"
+        android:layout_marginBottom="392dp"
         android:background="@drawable/back"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -70,12 +70,12 @@
         android:layout_above="@+id/button_signal"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="176dp"
+        android:layout_marginBottom="252dp"
         android:background="@drawable/back"
         android:padding="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 
@@ -85,12 +85,11 @@
         android:layout_height="35sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="116dp"
         android:text="Espaço"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -99,7 +98,7 @@
         android:layout_height="88sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="164dp"
         android:background="@drawable/round_button"
         android:src="@drawable/ic_click"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -113,11 +112,11 @@
         android:layout_height="50sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="112dp"
         android:src="@drawable/ic_backspace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.821"
+        app:layout_constraintHorizontal_bias="0.787"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -126,12 +125,12 @@
         android:layout_height="70sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="180dp"
         android:background="@drawable/round_button"
         android:src="@drawable/ic_send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.821"
+        app:layout_constraintHorizontal_bias="0.787"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -140,7 +139,7 @@
         android:layout_height="40sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="212dp"
         android:src="@drawable/ic_arrow_upward"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -153,7 +152,7 @@
         android:layout_height="82sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="128dp"
         android:src="@drawable/ic_arrow_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -165,7 +164,7 @@
         android:layout_height="46sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginBottom="448dp"
+        android:layout_marginBottom="524dp"
         android:background="#a0a0a0"
         android:gravity="center_vertical"
         android:text="Contato: "
@@ -174,11 +173,24 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_upward"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="654dp" />
 
-
+    <ImageButton
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_upward"
+        tools:layout_editor_absoluteX="293dp"
+        tools:layout_editor_absoluteY="654dp" />
 
 
 </android.support.constraint.ConstraintLayout>
