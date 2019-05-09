@@ -44,18 +44,31 @@ public class MorseTranslate extends AppCompatActivity {
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
-                numero_telefone= null;
+                numero_telefone = null;
             } else {
-                numero_telefone= extras.getString("numero_telefone");
+                numero_telefone = extras.getString("numero_telefone");
             }
         } else {
-            numero_telefone= (String) savedInstanceState.getSerializable("numero_telefone");
+            numero_telefone = (String) savedInstanceState.getSerializable("numero_telefone");
+        }
+
+        String mensagem;
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                mensagem= null;
+            } else {
+                mensagem= extras.getString("mensagem");
+                texttrad.setText(mensagem);
+            }
+        } else {
+            numero_telefone= (String) savedInstanceState.getSerializable("mensagem");
         }
 
         String phone = numero_telefone;
         textContato.setText(contato);
-
         buttonSignal.setOnLongClickListener((view) -> {
+
             if (textmorse.getText().length()<5) {
                 textmorse.setText(textmorse.getText() + "-");
             }
@@ -85,12 +98,13 @@ public class MorseTranslate extends AppCompatActivity {
                 texttrad.setText("");
             }
         });
+
+        String number_phone = numero_telefone;
         send.setOnLongClickListener((view) -> {
             Intent intent = new Intent(MorseTranslate.this, SMS.class);
             intent.putExtra("contato", contato);
-            intent.putExtra("numero_telefone", numero_telefone);
+            intent.putExtra("numero_telefone", number_phone);
             intent.putExtra("mensagem", texttrad.getText());
-            Log.d("DEBUG",numero_telefone+" "+texttrad.getText()+" "+contato);
             startActivity(intent);
 
             return false;
@@ -108,6 +122,9 @@ public class MorseTranslate extends AppCompatActivity {
         ImageButton dictionary = findViewById(R.id.dictionary);
         dictionary.setOnClickListener((view) -> {
             Intent intent = new Intent(MorseTranslate.this , Dictionary.class);
+            intent.putExtra("contato", contato);
+            intent.putExtra("numero_telefone", number_phone);
+            intent.putExtra("mensagem", texttrad.getText());
             startActivity(intent);
         });
     }

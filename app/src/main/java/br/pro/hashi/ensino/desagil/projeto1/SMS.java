@@ -9,7 +9,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class SMS extends AppCompatActivity {
 
@@ -18,10 +19,18 @@ public class SMS extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sms);
         ImageButton buttonSend = findViewById(R.id.send2);
+        ImageButton buttonSignal = findViewById(R.id.button_signal2);
+        ImageButton buttonBack = findViewById(R.id.backspace2);
+        Translator translator = new Translator();
 
+        TextView text_Morse = findViewById(R.id.morse);
         TextView text_Message = findViewById(R.id.message);
         TextView text_Number = findViewById(R.id.numero);
         TextView text_Contact = findViewById(R.id.contato);
+
+        LinkedList<String> lista = translator.getCodes();
+
+
 
         buttonSend.setOnClickListener((view) -> {
             String message = text_Message.getText().toString();
@@ -30,6 +39,7 @@ public class SMS extends AppCompatActivity {
                 showToast("Mensagem inválida!");
                 return;
             }
+
 
 
             String phone = String.valueOf(text_Number.getText());
@@ -48,6 +58,80 @@ public class SMS extends AppCompatActivity {
             manager.sendTextMessage(phone, null, message, null, null);
 
         });
+
+        buttonSignal.setOnLongClickListener((view) -> {
+            if (text_Number.getText().toString().length()==  0){
+                text_Number.setText("+");
+                System.out.println (text_Number.getText().toString());
+            }
+            if (text_Number.getText().length()<=13){
+                text_Morse.setText(text_Morse.getText()+"-");
+                System.out.println (text_Number.getText().toString());
+            }
+            if (text_Morse.getText().length() == 5) {
+                int ser = 0;
+                for (String text : lista) {
+                    if (text.equals(text_Morse.getText().toString())) {
+                        text_Number.setText(text_Number.getText().toString() + translator.morseToChar(text_Morse.getText().toString()));
+                        text_Morse.setText("");
+                        System.out.println (text_Number.getText().toString());
+                        ser = 1;
+                    }
+                }
+                if (ser == 0){
+                    text_Morse.setText("");
+                }
+            }
+            return true;
+        });
+
+        System.out.println (text_Number.getText().toString());
+        if (text_Number.getText().toString()==  null){
+            text_Number.setText("+");
+        }
+        System.out.println (text_Number.getText().toString());
+
+        buttonSignal.setOnClickListener((view) -> {
+            if (text_Number.getText().toString().length()==  0){
+                text_Number.setText("+");
+                System.out.println (text_Number.getText().toString());
+            }
+            if (text_Number.getText().length()<=13){
+                text_Morse.setText(text_Morse.getText()+".");
+                System.out.println (text_Number.getText().toString());
+            }
+            if (text_Morse.getText().length() == 5) {
+                int ser = 0;
+                for (String text : lista) {
+                    if (text.equals(text_Morse.getText().toString())) {
+                        text_Number.setText(text_Number.getText().toString() + translator.morseToChar(text_Morse.getText().toString()));
+                        text_Morse.setText("");
+                        System.out.println (text_Number.getText().toString());
+                        ser = 1;
+                    }
+                }
+                if (ser ==0){
+                    text_Morse.setText("");
+                }
+            }
+        });
+
+        buttonBack.setOnClickListener((view) -> {
+            String morse = text_Morse.getText().toString();
+            String alpha = text_Number.getText().toString();
+            int tamanhom = morse.length();
+            int tamanhoa = alpha.length();
+            if (tamanhom != 0) {
+                String novo = morse.substring(0, tamanhom - 1);
+                text_Morse.setText(novo);
+            } else if (tamanhoa != 0){
+                String novo = alpha.substring(0, tamanhoa - 1);
+                text_Number.setText(novo);
+            } else{
+                text_Number.setText("");
+            }
+        });
+
         String mensagem;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();

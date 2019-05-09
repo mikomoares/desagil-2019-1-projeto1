@@ -117,7 +117,7 @@ public class mensagens_rapidas extends AppCompatActivity {
 
                 }
                 else {
-                    Intent intent = new Intent(mensagens_rapidas.this, Activity2.class);
+                    Intent intent = new Intent(mensagens_rapidas.this, SMS.class);
                     intent.putExtra("contato", contatinho);
                     intent.putExtra("numero_telefone", phone );
                     intent.putExtra("mensagem", message );
