@@ -13,7 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".SMS"
+        <activity android:name=".Dictionary"
+                  android:exported="true" />
+        <activity
+            android:name=".SMS"
             android:exported="true" />
         <activity
             android:name=".MorseTranslate"
